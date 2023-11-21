@@ -14,7 +14,7 @@ async function createWindow() {
   // Create the browser window.
   const win = new BrowserWindow({
     width: 600,
-    height: 750,
+    height: 760,
     webPreferences: {
       
       // Use pluginOptions.nodeIntegration, leave this alone
@@ -35,10 +35,12 @@ async function createWindow() {
       const htmlElement = document.documentElement;
       
       // 스크롤 동작을 부드럽게 만듭니다.
-      htmlElement.style.scrollBehavior = 'smooth';
+      // htmlElement.style.scrollBehavior = 'smooth';
+      htmlElement.style.overflow = 'hidden';
 
-      // JavaScript 코드를 여기에 작성하여 페이지를 아래로 스크롤합니다.
-      window.scrollTo(0, document.body.scrollHeight);
+      setTimeout(() => {
+        window.scrollTo(0, document.body.scrollHeight);
+      }, 1000);
     `);
   }, 500);
   // if (process.env.WEBPACK_DEV_SERVER_URL) {
